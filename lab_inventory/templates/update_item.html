@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Item</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom Multicolor Gradient Background */
+        body {
+            background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 25%, #86a8e7 50%, #91eae4 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mx-auto p-6 bg-white bg-opacity-80 shadow-lg rounded-lg">
+        <!-- Home Button -->
+        <a href="/" class="bg-blue-500 text-white px-4 py-2 rounded-lg mb-6 inline-block hover:bg-blue-600">Home</a>
+
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-6">Update Item</h2>
+
+        <form method="POST" class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700">Item Name</label>
+                <input type="text" id="name" name="name" value="{{ item.name }}" class="p-2 border border-gray-300 rounded-lg w-full" required>
+            </div>
+            <div class="mb-4">
+                <label for="quantity" class="block text-gray-700">Quantity</label>
+                <input type="number" id="quantity" name="quantity" value="{{ item.quantity }}" class="p-2 border border-gray-300 rounded-lg w-full" required>
+            </div>
+            <div class="mb-4">
+                <label for="restock_threshold" class="block text-gray-700">Restock Threshold</label>
+                <input type="number" id="restock_threshold" name="restock_threshold" value="{{ item.restock_threshold }}" class="p-2 border border-gray-300 rounded-lg w-full">
+            </div>
+            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg w-full hover:bg-green-600">Update Item</button>
+        </form>
+    </div>
+
+</body>
+</html>

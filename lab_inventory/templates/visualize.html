@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Visualization</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Inventory Visualization</h2>
+        <canvas id="inventoryChart"></canvas>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('inventoryChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [{% for item in items %} '{{ item.name }}', {% endfor %}],
+                datasets: [{
+                    label: 'Quantity',
+                    data: [{% for item in items %} {{ item.quantity }}, {% endfor %}],
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Inventory Levels'
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
